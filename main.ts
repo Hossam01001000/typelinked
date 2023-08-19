@@ -19,12 +19,12 @@ let wait = (delay: number) =>
     page.setDefaultNavigationTimeout(120000)
     for (let count of lg) {
       try {
-        // await page.goto(
-        //   `https://www.linkedin.com/jobs/search/?f_AL=true&f_WT=2&f_T=9%2C25201%2C3172%2C25170%2C100&f_TPR=r86400&location=${count
-            // .trim()
-            // .replace(/ /, '%20')}&refresh=true&sortBy=R`
-        // )
-        await page.goto(`https://www.linkedin.com/jobs/search/?f_AL=true&location=${count.trim().replace(/ /, "%20")}&refresh=true&sortBy=R`);
+        await page.goto(
+          `https://www.linkedin.com/jobs/search/?f_AL=true&f_WT=2&f_T=9%2C25201%2C3172%2C25170%2C100&f_TPR=r86400&location=${count
+            .trim()
+            .replace(/ /, '%20')}&refresh=true&sortBy=R`
+        )
+        // await page.goto(`https://www.linkedin.com/jobs/search/?f_AL=true&location=${count.trim().replace(/ /, "%20")}&refresh=true&sortBy=R`);
         await wait(5)
         let num = await page.evaluate(() => {
           let wait = (delay: number) =>
